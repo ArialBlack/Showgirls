@@ -1,4 +1,10 @@
-libraries/
+libraries/*
 
 modules/jquery_update
 modules/l10n_update
+modules/backup_migrate
+
+build/node_modules/*
+biuld/bower_components*
+build/1/*
+build/bower_components/**/
