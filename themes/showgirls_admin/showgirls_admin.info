@@ -24,6 +24,7 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
+stylesheets[all][] = https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
 stylesheets[all][] = css/style.css
 
 
