@@ -22,7 +22,6 @@ modules/ckeditor
 modules/devel
 modules/file_entity
 modules/libraries
-modules/media
 modules/plup
 modules/plupload
 modules/multiform
@@ -32,3 +31,13 @@ modules/workbench_access
 modules/workbench_media
 modules/workbench_moderation
 modules/masquerade
+modules/views_bulk_operations
+modules/views_tree
+modules/media_browser_plus
+
+modules/media/css
+modules/media/images
+modules/media/modules
+modules/media/templates
+modules/media/tests
+modules/media/views
