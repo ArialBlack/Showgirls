@@ -1,0 +1,51 @@
+<?php
+
+function imagenodeactions_node_presave($node){
+//  if(empty($node->title)){
+//    throw new Exception('Error saving node: Title cannot be empty');
+//  }
+
+}
+
+function imagenodeactions_block_info() {
+  $blocks['Image-node-actions'] = array(
+    'info' => t('Image-node-actions'),
+    //'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  
+  return $blocks;
+}
+
+function imagenodeactions_block_view($delta = '') {
+  $block = array();
+ 
+  switch ($delta) {
+    case 'Image-node-actions':
+      $block['subject'] = t('Image-node-actions');
+      $block['content'] = imagenodeactions_action();
+      break;  
+	  
+  }
+  return $block;
+}
+
+
+function imagenodeactions_action() {
+    $nid = 49;
+    $node = node_load($nid);
+
+    $node_fids = array();
+    foreach ($node->field_media['und'] as $row) {
+        array_push($node_fids, $row['fid']);
+    }
+    
+    $query = db_select('field_data_field_tags', 'tags');
+    $query->distinct();
+    $query->fields('tags', array('field_tags_tid'));
+    $query->condition('entity_id', array($node_fids), 'IN');
+    $result = $query->execute()->fetchAll();
+    
+    dsm($result);
+
+    
+}
