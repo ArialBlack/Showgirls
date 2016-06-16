@@ -1,0 +1,57 @@
+<?php
+
+function imagenodeactions_node_presave($node){
+//  if(empty($node->title)){
+//    throw new Exception('Error saving node: Title cannot be empty');
+//  }
+
+}
+
+function imagenodeactions_block_info() {
+  $blocks['Image-node-actions'] = array(
+    'info' => t('Image-node-actions'),
+    //'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  
+  return $blocks;
+}
+
+function imagenodeactions_block_view($delta = '') {
+  $block = array();
+ 
+  switch ($delta) {
+    case 'Image-node-actions':
+      $block['subject'] = t('Image-node-actions');
+      $block['content'] = imagenodeactions_action();
+      break;  
+	  
+  }
+  return $block;
+}
+
+
+function imagenodeactions_action() {
+    $nid = 49;
+    $node = node_load($nid);
+
+    $node_fids = array();
+    foreach ($node->field_media['und'] as $row) {
+        array_push($node_fids, $row['fid']);
+    }
+    
+    $query = db_select('field_data_field_tags', 'tags');
+    $query->distinct();
+    $query->fields('tags', array('field_tags_tid'));
+    $query->condition('entity_id', array($node_fids), 'IN');
+    $result = $query->execute()->fetchAll();
+    
+    $tags_id = array();
+    $i=0;
+    //while (count($result)) {
+     //   array_push($tags_id, $result[$i]->field_tags_tid);
+    //    $i++;
+  //  }
+    
+    drupal_add_js(array('imagenodeactions' => array('tags' => $result)), array('type' => 'setting'));
+    drupal_add_js(drupal_get_path('module', 'imagenodeactions') . '/imagenodeactions.js');
+}

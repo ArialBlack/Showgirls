@@ -5,8 +5,7 @@ function imagewebimport_menu() {
   $items['admin/t'] = array(
     'title' => 'imagewebimport',
     'page callback' => 'imagewebimport_create',
-   // 'page arguments' => array(1,2),
-    'access arguments' => array('access content'), // whatever see above
+    'access arguments' => array('access content'),
     'type' => MENU_CALLBACK    
   );
 
@@ -15,19 +14,10 @@ function imagewebimport_menu() {
 
 function imagewebimport_create() {
     
-    //?get_article={"title":"My title", "imgurl":"http://cnet4.cbsistatic.com/hub/i/r/2015/01/06/575c5dd6-d55e-44aa-b1b1-4dda78a6683d/thumbnail/770x433/fb15539c8e6988f984b81578977a6d85/mercedes-f-015-press-ces-2015-3019.jpg"}
-    
     if(isset($_REQUEST['get_article']) && $_REQUEST['get_article']!='') {
         $json = json_decode($_REQUEST['get_article']); 
     }
-    dsm ($json);
     
-    $content = (t('Hi!'));
-    
-    $node_counter=0;
-    
-    //loop
-    $node_counter++;
     $node = new stdClass();
     $node->type = 'foto';
     node_object_prepare($node);
@@ -43,18 +33,21 @@ function imagewebimport_create() {
     $node->log = NULL;
     $node->created = time();  
     
-    //JSON = diamondDetailsBodies.0.certs.0.pdf.url
-    $node->field_src_url[$node->language][0]['value'] = "http://google.com.ua";
+    $node->field_src_url[$node->language][0]['value'] = $json->url;
     
-    //$node->field_image
-    $url = $json->imgurl;
-    $file_info = system_retrieve_file($url, 'public://pictures/', TRUE);
-    if($file_info->fid){
-        $node->field_image[LANGUAGE_NONE]['0']['fid'] = $file_info->fid;//assign fid
+    $img_count = count ( $json->imgsrc);
+    
+    for ($i = 0; $i < $img_count; $i++) {
+        $url = $json->imgsrc[$i];
+        $file_info = system_retrieve_file($url, 'public://pictures/', TRUE);
+        if($file_info->fid){
+            $node->field_image[LANGUAGE_NONE][$i]['fid'] = $file_info->fid;
+        }
     }
-      
+  
     $node = node_submit($node);
     node_save($node);
     
+    drupal_goto('/node/'.$node->nid);
     return $content;
 }

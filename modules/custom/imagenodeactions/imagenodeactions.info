@@ -1,0 +1,4 @@
+name = Image node actions
+description = Some actions for image nodes
+core = 7.x
+version = "7.x-1.0"

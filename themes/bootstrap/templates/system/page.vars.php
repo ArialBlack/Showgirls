@@ -22,7 +22,7 @@ function bootstrap_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="col-sm-9"';
   }
   else {
-    $variables['content_column_class'] = ' class="col-sm-12"';
+    $variables['content_column_class'] = ' class="col-sm-12 full"';
   }
 
   if (bootstrap_setting('fluid_container') == 1) {
