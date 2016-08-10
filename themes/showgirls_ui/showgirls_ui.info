@@ -44,7 +44,8 @@ stylesheets[all][] = css/style.css
 ;scripts[] = '../bootstrap/js/tab.js'
 ;scripts[] = '../bootstrap/js/transition.js'
 
-scripts[] = 'js/bootstrap.min.js'
+;scripts[] = 'js/bootstrap.min.js'
+;scripts[] = 'js/main.js'
 
 ; Disable BootstrapCDN so the compiled LESS source files can be used.
 settings[bootstrap_cdn] = ''

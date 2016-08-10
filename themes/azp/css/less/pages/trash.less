@@ -1,0 +1,673 @@
+   // &.join.as-media {
+   //       background: url(../images/media.jpg) no-repeat center center fixed;
+   //       .cover(); 
+  //  }
+    
+        &.join.rent {
+          background: url(../images/rent.jpg) no-repeat center center fixed;
+          .cover(); 
+    }
+    
+
+body.join {
+    
+   &.as-media, 
+   &.art-colaboration {
+       
+        .field-name-field-image  {
+            display: none;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .field-name-body {
+            h2 {
+                display: none;
+            }
+        }
+    
+        .webform-client-form {
+            width: 30%;
+            float: left;
+            text-align: center;
+            
+            a.btn-default,
+            button.webform-submit {
+                background: none;
+                border: 2px solid white;
+                color: white;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                display: inline-block;
+                font-size: 24px; 
+            }
+            
+            .hide-on-hover,
+            button.webform-submit {
+                display: none;
+            }
+            
+            .form-item {
+                margin-bottom: 20px;
+            }
+            
+        }
+   }
+             
+    &.as-media {
+        
+        .region-content-bottom {
+            .block {
+                width: 350px;
+                background: rgba(0, 0, 0, 0.7) none repeat;
+                color: white;
+                padding: 30px;
+                margin-bottom: 60px;
+                
+                i {
+                    font-size: 30px;
+                    text-align: center;
+                }
+            }
+        }
+            
+        .region-content {
+            
+            margin-bottom: 80px;
+            
+            > .block-system {
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            } 
+        }   
+ 
+        .field-name-body {
+            
+            width: 70%;
+            float: left;
+            
+
+            
+            p {
+                text-align: justify;
+                padding-right: 30px;
+                font-size: 16px;
+            }
+            
+            .whytext {
+                font-size: 30px;
+            }
+            
+            .col {
+                margin-bottom: 20px;
+            }
+            
+        }
+        
+
+    }
+    
+    &.art-colaboration {
+        
+        .webform-client-form {
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+            margin-top: 40px;
+            clear: both;
+            float: none;
+        }
+        
+        #block-views-art-block-1 {
+            margin-top: 40px;
+        }
+        
+        .view .col {
+            margin-bottom: 30px;
+            
+            a {
+                color: white;
+                
+                .views-field-title,
+                .views-field-field-date {
+                    color: white;
+                    background: @azp-orange;
+                    padding: 2px 20px;  
+                    font-size: 20px;
+                    font-family: 'museo_sans_cyrl700'; 
+                }
+        
+                .views-field-field-body {
+                    background: @azp-orange;
+                    font-size: 16px; 
+                    padding: 5px 20px;
+                    display: none;
+                }
+                
+                .views-field-field-photo-anons {
+                    display: none;
+                }
+                
+                &:hover {
+                    
+                    text-decoration: none;
+                    position: absolute;
+                    z-index: 999;
+                    margin-top: -20px; 
+                    -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    -moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    border: black 10px solid;
+                     
+
+                    .views-field-field-body,
+                    .views-field-field-photo-anons
+                    {
+                        display: block; 
+                    }
+                    
+                    .hide-on-hover {
+                        display: none; 
+                    }
+                    
+                }
+            } 
+        }
+    
+    }
+}
+
+
+
+.page-join {
+  h1 {
+      margin: 40px auto 20px auto;
+      text-align: center;
+  }
+    .block_container {
+        display: none;
+    }
+    
+    .region-content {
+         background: rgba(0,0,0,0.70);
+        overflow-y: visible;  
+    }
+    
+    .col {
+        margin-bottom: 60px;  
+    }
+    
+    .node {
+        cursor: pointer;
+        
+        > h2 {
+            display: none;
+        }
+        
+        h2 {
+            margin: 0;
+            position: absolute;
+            top: 20px;
+            z-index: 20;
+            padding: 0 20px;
+            font-size: 26px;
+            
+            
+            a {
+                color: white;
+                font-family: 'museo_sans_cyrl700';
+                font-size: 24px;
+                text-decoration: none; 
+
+            }
+        }
+        
+        .field-name-body {
+            div.col { 
+                display: none;
+            }
+        }
+        
+        .overlay_g {
+            display:block;
+            position: absolute;
+            top: 0;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+             
+        }
+        
+        &.node_0 {
+            .overlay_g {
+                background-image: url(../images/join_0.png);
+            }
+        }
+        
+        &.node_1 {
+            .overlay_g {
+                background-image: url(../images/join_1.png);
+            }
+        }
+
+        &.node_2 {
+            .overlay_g {
+                background-image: url(../images/join_2.png);
+            }
+        }
+
+        &.node_3 {
+            h2 {
+                top: 200px;
+            }
+            .overlay_g {
+                background-image: url(../images/join_3.png);
+                background-position: bottom;
+            }
+        }
+
+
+        &.node_4 {
+            h2 {
+                top: 200px;
+            }
+            .overlay_g  {
+                background-image: url(../images/join_4.png);
+                background-position: bottom;
+            }
+        }
+        
+        &.node_5 {
+            h2 {
+                top: 200px;
+            }
+            .overlay_g {
+                background-image: url(../images/join_5.png);
+                background-position: bottom;
+            }
+        }
+
+        
+        .webform-client-form {
+            display: none;
+            padding: 10px 60px;
+            background: @azp-orange;
+            text-align: center;
+            
+            .form-item, button {
+                margin: 10px auto;
+            }
+            
+            button, a.btn-default {
+                background: none;
+                border: 2px solid white;
+                color: white; 
+            }
+            
+            a.btn {
+                display: none;
+            }
+        }
+        
+        &:hover {  
+            position: absolute;
+            z-index: 999;
+            -webkit-box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 1);
+            -moz-box-shadow:    0px 0px 20px 0px rgba(50, 50, 50, 1);
+            box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 1);
+            
+            .webform-client-form {
+                display: block;
+                
+                .select {
+                    z-index: 1000;
+                } 
+            }
+        }
+    }
+}
+
+.join.rent {
+    
+    .field-name-field-image, 
+    h2,
+    .webform-client-form { 
+        display: none;
+    } 
+    
+    .region.region-content {
+        background: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .block_container {
+        position: relative;
+    }
+    
+    .blocks {
+        width: 79.6%;
+        position: absolute;
+        
+
+        .bl {
+            display:block;
+            position: absolute;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                
+                img, p {
+                    display: none;
+                }
+                
+                &:hover {
+                    -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    -moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 1);
+                    border: black 10px solid;
+                    height: auto;
+                    position: absolute;
+                    z-index: 999;
+                    background: black;
+                    
+                    img, p {
+                        display: block;
+                    }
+                    
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                    
+                    p {
+                        color: white;
+                    }
+                }
+            }
+            
+            &.center_center {
+                width: 24%;
+                height: 18%;
+                left: 38%;
+                top: 41%;
+                background-image: url(../images/arenda-5.jpg);
+            }
+            
+            &.top_left {
+                top: 0;
+                left: 0;
+                background-image: url(../images/arenda-1.jpg);
+            }
+            
+            &.top_right {
+                right: 0;
+                top: 0;
+                 background-image: url(../images/arenda-2.jpg);
+            }
+    
+            &.bottom_left {
+                left: 0;
+                bottom: 0;
+                 background-image: url(../images/arenda-3.jpg);
+            }
+    
+            &.bottom_right {
+                right: 0;
+                bottom: 0;
+                 background-image: url(../images/arenda-4.jpg);
+            }
+    
+            &.top_left, 
+            &.bottom_right {
+                width: 36%;
+                height: 59%;
+            }
+    
+            &.top_right, 
+            &.bottom_left {
+                width: 62%;
+                height: 38%;
+            }
+              
+        }
+    
+    }
+    
+    .side-blocks {
+        width: 17%;
+        
+        position: absolute;
+        right: 0;  
+        
+        .sblock {
+            height: 17%;
+            background: rgba(0, 0, 0, 0.7) none repeat;
+            width: 100%;
+            
+            &.sblock-2 {
+                margin-top: 9%;
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    
+                    &:hover, &.hover {
+                        height: auto;
+                        
+                        .webform-client-form {
+                            display: block;
+                            position: absolute;
+                            width: 300px;
+                            background: black;
+                            -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 1);
+                            -moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 1);
+                            box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 1);
+                            border: black 10px solid;
+                            padding: 20px;
+                            right: 0;
+                            margin-top: -40px;
+                            
+                            .form-control {
+                                margin-bottom: 20px;
+                            }
+                            
+                            button {
+                                background: none;
+                                color: white;
+                                border: white 4px solid;
+                                font-size: 24px;
+                                text-transform: uppercase;
+                                padding: 10px 20px; 
+                                font-family: 'museo_sans_cyrl900'; 
+                    
+                                &:hover {
+                                    background: white;
+                                    color: @azp-orange; 
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+            &.sblock-3 {
+                height: 38.8888%;
+                position: absolute;
+                bottom: 0;
+                
+
+            }
+        }
+    }
+}
+
+
+body.philosophy {
+    .region.region-content {
+        background: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    h1 {
+        display: none;
+    }
+    
+    h2 {
+        color: black;
+    }
+    
+    .main-container.container,
+    section {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+     .main-container .row {
+        margin: 0;
+     }
+    
+    .ph-l {
+        background: rgba(250,250,250,0.8);
+        padding: 40px 20px;
+        color: black;
+    }
+    
+    .ph-m {
+        padding: 40px 20px;
+        background: rgba(250,250,250,0.9);
+        text-align: right;
+        color: black;
+    }
+    
+}
+
+
+function hover_cards() {
+    jQuery( "a.preview" ).each(function( index ) {
+        var $this = jQuery( this );
+        jQuery( this ).css("width", $this.parents(".views-field-nothing").width() +"px");
+         var $this = jQuery( this );
+         var ph = $this.parents(".view .row .col").height(); 
+         $this.parents(".view .row .col").css("min-height",ph+"px"); 
+         var phc = $this.parents(".view .row").outerHeight(true); 
+         $this.parents(".view .row").css("min-height",phc+"px");         
+
+        var aimg=jQuery( this ).find(".views-field-field-photo-anons img");
+ 
+        if (aimg.length >0)
+        { 
+            jQuery( this ).find(".views-field-field-image").addClass("hide-on-hover"); 
+        }
+    });
+}
+
+function hover_text() {
+     jQuery( "a.hover-text" ).each(function( index ) {  
+         console.log(jQuery( this ).width()); 
+         jQuery( this ).find(".text-block").css("width",jQuery( this ).width() +"px");
+     });  
+}
+
+function delay_hover() {
+    jQuery("a.hover-delay").hover(function() {
+    jQuery(this).addClass("hover");
+    }, function() {
+    var linkmenu =jQuery(this);
+    window.setTimeout(function(){
+    linkmenu.removeClass("hover");
+    }, 1000);
+    });
+}
+
+
+
+
+
+.view-calendar {
+    h3 {
+        margin-bottom: 20px !important;
+    }
+    
+    .view-footer {
+        text-align: center;
+        
+        .btn {
+            margin-top: 30px;
+            background: none !important;
+            padding: 7px 12px;
+            border: white 2px solid;
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.calendar-calendar {
+    th.days {
+        background: #385c9a;
+        color: white;
+        border: none;
+        padding: 10px;
+    }
+    
+    a {
+        color:rgba(30,30,30,1.00);
+    }
+    
+   .month-view .full td.single-day div.monthview, 
+   .week-view .full td.single-day div.weekview, 
+   .day-view .full td.single-day div.dayview {
+       background: none;
+   }
+   
+   .month-view .full td.multi-day div.monthview, 
+   .week-view .full td.multi-day div.weekview, 
+   .day-view .full td.multi-day div.dayview {
+       height: auto;
+       overflow: visible;
+       background: none;
+   }
+   
+   .month-view .full td.multi-day .calendar.monthview .contents, 
+   .week-view .full td.multi-day .calendar.weekview .contents {
+       position: static;
+       width: auto;
+   }
+   
+   .month-view .full tr.single-day .noentry-multi-day, 
+   .month-view .full tr.single-day .noentry-multi-day .inner,
+   .month-view .full td.multi-day .inner .monthview .continues, 
+   .month-view .full td.multi-day .inner .monthview .cutoff, 
+   .week-view .full td.multi-day .inner .weekview .continues, 
+   .week-view .full td.multi-day .inner .weekview .cutoff {
+      
+   }
+   
+   .month-view .full td.date-box.today,
+   .month-view .full tr td.single-day.today {
+       border-color: #385c9a;
+   }
+}
+

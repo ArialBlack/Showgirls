@@ -1,0 +1,139 @@
+.cover () {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container() {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    @media (min-width:768px) { 
+        width: 750px; 
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    @media (min-width:992px) {
+            width: 970px;
+    }
+
+    @media (min-width:1200px) {
+            width: 1170px;
+    }
+    
+    @media (min-width: 1600px) {
+        width: 1570px;
+    }
+}
+
+.XLcontainer {
+    @media (min-width: 1600px) {
+        width: 1570px;
+    }
+}
+
+.page_header(@pth: @page-title-height) {
+    font-size: @pth - 80px;
+    color: white; 
+    
+    @media (min-width:992px) {
+         font-size: @pth - 40px;
+    }
+    
+    @media (min-width:1200px) {
+         font-size: @pth - 20px;
+    }
+    
+    @media (min-width: 1600px) {
+        font-size: @pth; 
+    }
+}
+
+.btn-outline(@color) {
+    background: none;
+    color: @color;
+    border: @color 2px solid;
+    font-size:20px;
+    text-transform: uppercase;
+    padding: 10px 20px; 
+    font-family: 'museo_sans_cyrl300'; 
+    
+    &:hover {
+        background: @color;
+        color: @bg; 
+    }
+}
+
+.grid-offset(@type){
+    @{type}: 15px;
+    
+    @media (min-width: 1600px) {
+        @{type}: @col-pad-xl;
+    }  
+}
+
+.hideme() {
+    .transition(0.5s ease);
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0; 
+    opacity: 0;
+}
+
+.showme() {
+    max-height: 1000px; 
+    opacity: 1;
+    .transition(1s ease);
+}
+
+.offset(@type, @size: @padding) {
+        @i: @size/5;
+        @{type}: ~'@{i}px';
+    
+    @media (min-width:@small) {
+        @i: @size/2.5;
+        @{type}: ~'@{i}px';
+    }
+    
+    @media (min-width:@medium) {
+        @i: @size/1.666;
+        @{type}: ~'@{i}px';
+    }
+    
+    @media (min-width:@large) {
+        @i: @size/1.25;
+        @{type}: ~'@{i}px';
+    }
+    
+    @media (min-width:@xlarge) {
+        @i: @size;
+        @{type}: ~'@{i}px';
+    }
+    
+}
+
+.line(@size: @padding) {
+    content: "";
+    height: 1px;
+    left: 0;
+    margin: 0 -9999px;
+    padding: 0 9999px;
+    position: absolute;
+    background-color: #c2c2c2;
+    width: 10000px;
+    .offset(margin-top, @size);
+}
+
+.fixedcontainer(@size: 1170px) {
+    max-width: @size;
+    margin-left: auto;
+    margin-right: auto;
+}
+

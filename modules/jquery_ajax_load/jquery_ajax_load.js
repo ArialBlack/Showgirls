@@ -56,8 +56,8 @@
     else {
       var loading_html = Drupal.t('Loading'); 
       loading_html += '... <img src="/';
-      loading_html += module_path;
-      loading_html += '/jquery_ajax_load_loading.gif">';
+     // loading_html += module_path;
+      loading_html += 'sites/all/themes/azp/images/loading.gif">';
       $(target).html(loading_html);
       $(target).load(base_path + 'jquery_ajax_load/get' + url, function( response, status, xhr ) {
         if ( status == "error" ) {

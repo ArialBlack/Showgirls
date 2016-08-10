@@ -5,6 +5,8 @@
  * these variables directly from ../bootstrap/less/variables.less to this file.
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic);
 /* line 9, ..\build\bower_components\bootstrap\less\normalize.less */
 html {
   font-family: sans-serif;
@@ -9108,7 +9110,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 #navbar-administration.navbar-oriented .navbar-tray-vertical {
   width: 24rem;
 }
-/* line 3, ..\themes\showgirls_ui\less\grid.less */
+/* CSS Document */
+/*@media (min-width: 768px) {
+@media (min-width: 992px) {
+@media (min-width: 1200px) {*/
+/* line 23, ..\themes\showgirls_ui\less\grid.less */
 .col-xs-1.full,
 .col-sm-1.full,
 .col-md-1.full,
@@ -9207,4 +9213,163 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .col-lg-12.np {
   padding-left: 0;
   padding-right: 0;
+}
+/* line 30, ..\themes\showgirls_ui\less\grid.less */
+.wider-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@media (min-width: 1400px) {
+  /* line 35, ..\themes\showgirls_ui\less\grid.less */
+  .wider-container {
+    width: 85%;
+  }
+}
+/* line 40, ..\themes\showgirls_ui\less\grid.less */
+.narrow-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  /* line 45, ..\themes\showgirls_ui\less\grid.less */
+  .narrow-container {
+    width: 85%;
+  }
+}
+@media (min-width: 992px) {
+  /* line 49, ..\themes\showgirls_ui\less\grid.less */
+  .narrow-container {
+    width: 70%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 53, ..\themes\showgirls_ui\less\grid.less */
+  .narrow-container {
+    width: 55%;
+  }
+}
+@font-face {
+  font-family: 'nautilus_pompiliusregular';
+  src: url('../fonts/nautilus-webfont.eot');
+  src: url('../fonts/nautilus-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/nautilus-webfont.woff2') format('woff2'), url('../fonts/nautilus-webfont.woff') format('woff'), url('../fonts/nautilus-webfont.svg#nautilus_pompiliusregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ..\themes\showgirls_ui\less\fonts.less */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+}
+/* line 22, ..\themes\showgirls_ui\less\fonts.less */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'nautilus_pompiliusregular', serif;
+  font-weight: normal;
+}
+/*font-family: 'Noto Serif', serif;*/
+/* line 2, ..\themes\showgirls_ui\less\general.less */
+.field-name-body p {
+  margin-bottom: 60px;
+}
+/* line 5, ..\themes\showgirls_ui\less\general.less */
+.field-name-body p:last-child {
+  margin-bottom: 0;
+}
+/* line 1, ..\themes\showgirls_ui\less\nav.less */
+#navbar {
+  margin-top: 0;
+  margin-bottom: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+/* line 8, ..\themes\showgirls_ui\less\nav.less */
+#navbar .navbar-toggle {
+  display: inline-block;
+}
+/* line 12, ..\themes\showgirls_ui\less\nav.less */
+#navbar .navbar-header {
+  margin-right: -15px;
+  margin-left: -15px;
+  float: none;
+}
+/* line 17, ..\themes\showgirls_ui\less\nav.less */
+#navbar .navbar-header .logo {
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* line 24, ..\themes\showgirls_ui\less\nav.less */
+#navbar .navbar-collapse.collapse {
+  display: none !important;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+/* line 29, ..\themes\showgirls_ui\less\nav.less */
+#navbar .navbar-collapse.collapse.in {
+  display: block !important;
+}
+/* line 34, ..\themes\showgirls_ui\less\nav.less */
+#navbar .menu {
+  margin: 7.5px -15px;
+  float: none;
+}
+/* line 2, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto h1 {
+  display: none;
+}
+/* line 8, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .intro.fullscreen-cover .imagecover {
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 17, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .field-name-body {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: justify;
+}
+/* line 23, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .field_media {
+  margin-bottom: 20px;
+  float: left;
+  width: 100%;
+}
+/* line 28, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .field_media.fh {
+  box-sizing: border-box;
+}
+/* line 31, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .field_media.fh.portrait {
+  width: 50%;
+}
+/* line 35, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .field_media.fh .field_media-wrap {
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 44, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .landscape + .portrait {
+  padding-right: 10px;
+}
+/* line 48, ..\themes\showgirls_ui\less\node-foto.less */
+.node-foto .portrait + .portrait {
+  padding-left: 10px;
+}
+/* line 2, ..\themes\showgirls_ui\less\comments.less */
+.comment .comment_forbidden,
+.comment .permalink {
+  display: none;
 }

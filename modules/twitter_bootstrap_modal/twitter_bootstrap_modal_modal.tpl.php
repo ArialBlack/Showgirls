@@ -10,4 +10,4 @@
  */
 ?>
 
-  <?php  print $render_string; ?>
+  <div class="modal-body"><?php  print $render_string; ?></div>

@@ -84,6 +84,8 @@
      $byShowgirls = true;
  }
  
+ $coverfile = file_load($node->field_front_image['und'][0]['fid']);
+ $coveruri = $coverfile->uri;
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -98,10 +100,8 @@
 
 
   
-    <div class="intro">
-        <div class="col-sm-9 np">
-            <?php print render($content['field_front_image']); ?>
-        </div>
+    <div class="intro fullscreen-cover">
+        <div class="col-sm-9 np imagecover" style="background-image: url('<?php print image_style_url("cover", $coveruri) ?>')"></div>
         <div class="col-sm-3">
             <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
             
@@ -132,7 +132,38 @@
         </div>
     </div>
 
+    <div class="clearfix"></div>
     <div class="content"<?php print $content_attributes; ?>>
+        
+        <div class="narrow-container1">
+            <?php print render($content['body']); ?>
+        </div>
+        
+        <div class="wider-container1">
+            <?php 
+            //print render($content['field_media']);
+            //dsm($node->field_media['und']);
+            $medialist = $node->field_media['und'];
+            
+            for ($i = 0; $i < count($medialist); $i++) {
+               //dsm ($medialist[$i]['fid']);
+                $mediafile = file_load($medialist[$i]['fid']);
+                $mediauri = $mediafile->uri;
+                
+                $mediainfo = image_get_info($mediauri);
+                $mediawidth = $mediainfo["width"];
+                $mediaheight = $mediainfo["height"];
+                
+                if($mediawidth >= $mediaheight) {
+                    $mediaRatio = "landscape";
+                } else $mediaRatio = "portrait";
+                
+                print "<div class=" ."\"". "fh field_media " . $mediaRatio . "\"" . "><div class=" ."\"". "field_media-wrap " . "\"" . "style=" . "\"" . "background-image: url('" . image_style_url("large", $mediauri) ."')" . "\"" . "></div></div>\n";
+            }
+            
+            ?>
+        </div>
+    
         <?php
           // We hide the comments and links now so that we can render them later.
           hide($content);
