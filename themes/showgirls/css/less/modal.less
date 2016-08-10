@@ -1,0 +1,205 @@
+.img-tag {
+    float: right;
+    
+    img {
+        max-width: 127px;
+    }
+}
+
+body.jquery-ajax-load {
+    background: rgba(0, 0, 0, 0.75);
+    
+    .node {
+        .container();
+        background: white;
+        padding-left: 0 !important;
+        padding-right: 0 !important; 
+    }
+}
+
+.page-node .node-type-news,
+.page-node .node-type-event,
+.modal-dialog.container,
+body.jquery-ajax-load {
+    
+        .content {
+            padding-bottom: 40px;
+        }
+        
+        .node .field-name-body,
+        .field-type-taxonomy-term-reference,
+        .submitted,
+        .field-name-field-fb-event,
+        .node-title,
+        .ya-share2,
+        .img-tag,
+        .carousel-container,
+        .field-name-field-date,
+        .field-name-field-vimeo {
+            padding: 20px 80px 0 80px;
+        }
+        
+        .ya-share2 {
+            padding-bottom: 80px;
+        }
+        
+        .views-field-field-youtube,
+        .views-field-field-vimeo {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .ya-share2 ul {
+            margin-left: 0;
+        }
+
+        .field-name-field-image .field-label {
+            display: none;
+        }
+
+        #overlay-content .field-name-field-image img {  
+            border: none;
+        } 
+  
+        .submitted  {
+            padding-bottom: 0; 
+        }
+        
+        field-name-field-date {  
+            padding: 40px 80px 0 80px;  
+            font-size:16px;
+            text-align: left; 
+            font-family: 'museo_sans_cyrl700';
+            font-weight: normal; 
+        }
+        
+        .field-name-field-date span {
+            color: #e35825;
+            font-size: 30px; 
+            font-family: 'museo_sans_cyrl700';
+            font-weight: normal; 
+        }
+        
+        .field-name-field-fb-event {
+            font-size: 18px;
+            text-decoration: underline;
+        }
+        
+        @media(max-width:767px) { 
+        
+            .field-type-taxonomy-term-reference,
+            .submitted,
+            .field-name-field-fb-event,
+            .node-title,
+            .ya-share2,
+            .img-tag,
+            .field-name-field-date,
+            .node .field-name-body,
+            .field-name-field-date   {
+                padding: 10px 20px 0 20px;  
+            }
+            
+            .node h1, 
+            .node h2 {
+                font-size: 25px;    
+            }
+            
+            .carousel-indicators {
+                display: none;
+            }
+            
+            .date-display-start { padding-left: 10px;}
+            .date-display-start:after { content:"\A"; white-space:pre; }    
+    
+        }  
+}
+
+body.map {
+    .modal-dialog.container {
+        .in-teaser {
+            .field-name-body,
+            .carousel-container {
+                padding: 0;
+                
+                p {
+                    font-size: 16px;
+                }
+            }
+        } 
+    }
+}
+    
+.modal {
+    
+    .modal-header {
+        border: none;
+        padding: 0 0 30px 0;
+
+        h4 {
+            display: none;
+        }
+        
+        button {
+            opacity: 1;
+            
+            i {
+                color: white;
+            }
+        }
+    }
+    
+    .modal-dialog.container {
+        .container();
+        
+        @media (min-width: 1600px) {
+            width: 1170px;
+        }
+        
+        @media(max-width:767px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+        
+    .modal-content {
+        background: none;
+        border: none;
+        border-radius: 0;
+        
+        .field-name-body:after {
+            background-color: none;
+        }
+        
+        .modal-body {
+            padding: 0;
+            background: white; 
+            
+            .node {
+                margin-top: 0;
+            } 
+        }
+    }
+}
+
+.modal-backdrop.in {
+    opacity: 0.75;
+}
+
+.close {
+    .fa-remove:before, 
+    .fa-close:before, 
+    .fa-times:before {
+        text-shadow: 0px 0px 12px rgba(0, 0, 0, 1);
+    }
+}
+
+.loading-div {
+    text-align: center;
+    
+    .text-warning {
+        color: white;
+        font-family: 'museo_sans_cyrl700';
+        text-transform: lowercase;
+    }
+}
+

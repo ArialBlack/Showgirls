@@ -7,12 +7,12 @@
 
 (function ($) {
   Drupal.behaviors.jquery_ajax_load = {
+      
     attach: function (context, settings) {
       jQuery.ajaxSetup ({
       // Disable caching of AJAX responses
         cache: false
       });
-
       var trigger = Drupal.settings.jquery_ajax_load.trigger;
       var target = Drupal.settings.jquery_ajax_load.target;
       // Puede ser más de un valor, hay que usar foreach()
@@ -57,7 +57,7 @@
       var loading_html = Drupal.t('Loading'); 
       loading_html += '... <img src="/';
      // loading_html += module_path;
-      loading_html += 'sites/all/themes/azp/images/loading.gif">';
+      loading_html += 'sites/all/themes/showgirls/images/loading.gif">';
       $(target).html(loading_html);
       $(target).load(base_path + 'jquery_ajax_load/get' + url, function( response, status, xhr ) {
         if ( status == "error" ) {
@@ -67,12 +67,13 @@
         else {
           if ( animation ) {
             $(target).hide();
-            $(target).show('slow')
+            $(target).show('slow');
           }
 //        Drupal.attachBehaviors(target);
         }
       });
       $(el).addClass( "jquery_ajax_load_open" );
+      
     }
   }
 }(jQuery));

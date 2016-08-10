@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                    // prefix : 'icon-',
                 },
                 files: {
-                    '../themes/showgirls_ui/images/svg-icons-sprite.svg': ['icons-svg/compressed/*.svg']
+                    '../themes/showgirls/images/svg-icons-sprite.svg': ['icons-svg/compressed/*.svg']
                 },
             },
         },
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                     dumpLineNumbers: 'comments'
                 },
                 files: {
-                    '../themes/showgirls_ui/css/style.css': '../themes/showgirls_ui/less/style.less',
+                    '../themes/showgirls/css/style.css': '../themes/showgirls/less/style.less',
 	            '../themes/showgirls_admin/css/style.css': '../themes/showgirls_admin/less/style.less',
                 }
             }
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 
             less: {
                 files: [
-                    '../themes/showgirls_ui/less/**/*.less',
+                    '../themes/showgirls/less/**/*.less',
                     '../themes/showgirls_admin/less/**/*.less'
                 ],
                 tasks: ['less']
