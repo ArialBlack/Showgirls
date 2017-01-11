@@ -3,5 +3,9 @@
   "version": "7.3.x-dev",
   "license": "GPL+2",
   "homepage": "https://www.drupal.org/project/bootstrap",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jquery.gifplayer": "~0.3.2",
+    "freezeframe.js": "*"
+  }
 }

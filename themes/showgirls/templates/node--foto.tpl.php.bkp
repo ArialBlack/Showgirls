@@ -135,11 +135,11 @@
     <div class="clearfix"></div>
     <div class="content"<?php print $content_attributes; ?>>
         
-        <div class="narrow-container1">
+        <div class="">
             <?php print render($content['body']); ?>
         </div>
         
-        <div class="wider-container1">
+        <div class="">
             <?php 
             //print render($content['field_media']);
             //dsm($node->field_media['und']);

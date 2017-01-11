@@ -1,0 +1,18 @@
+/* line 4, ../themes/ember/less/twiks.less */
+#edit-field-media-und-ajax-wrapper .preview .media-item {
+  padding: 5px;
+}
+/* line 8, ../themes/ember/less/twiks.less */
+#edit-field-media-und-ajax-wrapper .preview .media-thumbnail {
+  width: 120px;
+  height: 120px;
+}
+/* line 12, ../themes/ember/less/twiks.less */
+#edit-field-media-und-ajax-wrapper .preview .media-thumbnail .label-wrapper {
+  display: none;
+}
+/* line 19, ../themes/ember/less/twiks.less */
+#media-tabs-wrapper .ui-tabs-nav li.ui-state-active a:link,
+#media-tabs-wrapper .ui-tabs-nav li.ui-state-active a:visited {
+  color: black;
+}

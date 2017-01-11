@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     '../themes/showgirls/css/style.css': '../themes/showgirls/less/style.less',
-	            '../themes/showgirls_admin/css/style.css': '../themes/showgirls_admin/less/style.less',
+	            '../themes/ember/styles/twiks.css': '../themes/ember/less/twiks.less',
                 }
             }
         },
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             less: {
                 files: [
                     '../themes/showgirls/less/**/*.less',
-                    '../themes/showgirls_admin/less/**/*.less'
+                    '../themes/ember/less/**/*.less'
                 ],
                 tasks: ['less']
             },

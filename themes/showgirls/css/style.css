@@ -9501,42 +9501,33 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 303, ..\themes\showgirls\less\grid.less */
-.wider-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+/*.wider-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    
+    @media (min-width: 1400px) {
+        width: 85%;
+    }
 }
-@media (min-width: 1400px) {
-  /* line 308, ..\themes\showgirls\less\grid.less */
-  .wider-container {
-    width: 85%;
-  }
-}
-/* line 313, ..\themes\showgirls\less\grid.less */
+
 .narrow-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  /* line 318, ..\themes\showgirls\less\grid.less */
-  .narrow-container {
-    width: 85%;
-  }
-}
-@media (min-width: 992px) {
-  /* line 322, ..\themes\showgirls\less\grid.less */
-  .narrow-container {
-    width: 70%;
-  }
-}
-@media (min-width: 1200px) {
-  /* line 326, ..\themes\showgirls\less\grid.less */
-  .narrow-container {
-    width: 55%;
-  }
-}
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    
+    @media (min-width: @min-sm) {
+        width: 85%;
+    }
+    
+    @media (min-width: @min-md) {
+        width: 70%;
+    }
+    
+    @media (min-width: @min-lg) {
+        width: 55%;
+    }
+}*/
 @font-face {
   font-family: 'nautilus_pompiliusregular';
   src: url('../fonts/nautilus-webfont.eot');
@@ -9569,6 +9560,11 @@ h6 {
 /* line 5, ..\themes\showgirls\less\general.less */
 .field-name-body p:last-child {
   margin-bottom: 0;
+}
+/* line 13, ..\themes\showgirls\less\general.less */
+#imagewebimport-step2 table img {
+  max-width: 200px;
+  height: auto;
 }
 /* line 1, ..\themes\showgirls\less\modal.less */
 .img-tag {
@@ -9981,54 +9977,141 @@ body.map .modal-dialog.container .in-teaser .carousel-container p {
   margin: 7.5px -15px;
   float: none;
 }
-/* line 2, ..\themes\showgirls\less\node-foto.less */
+/* line 2, ..\themes\showgirls\less\comments.less */
+.comment .comment_forbidden,
+.comment .permalink {
+  display: none;
+}
+/* line 3, ..\themes\showgirls\less\views\events.less */
+.view-Events .event-image img {
+  width: 100%;
+  height: auto;
+}
+/* line 2, ..\themes\showgirls\less\content-types\foto.less */
 .node-foto h1 {
   display: none;
 }
-/* line 8, ..\themes\showgirls\less\node-foto.less */
+/* line 8, ..\themes\showgirls\less\content-types\foto.less */
 .node-foto .intro.fullscreen-cover .imagecover {
   height: 100%;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* line 17, ..\themes\showgirls\less\node-foto.less */
+/* line 17, ..\themes\showgirls\less\content-types\foto.less */
 .node-foto .field-name-body {
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: justify;
 }
-/* line 23, ..\themes\showgirls\less\node-foto.less */
-.node-foto .field_media {
+/* line 2, ..\themes\showgirls\less\content-types\media-field.less */
+.field-name-field-media .field-item.static-image {
+  width: 30%;
+}
+/* line 5, ..\themes\showgirls\less\content-types\media-field.less */
+.field-name-field-media .field-item.static-image img {
+  width: 100%;
+  height: auto;
+}
+/*.field_media {
   margin-bottom: 20px;
   float: left;
   width: 100%;
+
+  &.fh {
+    box-sizing: border-box;
+
+    &.portrait {
+      width: 50%;
+    }
+
+    &.square {
+      width: 33%;
+    }
+
+    .field_media-wrap {
+      height: 100%;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
 }
-/* line 28, ..\themes\showgirls\less\node-foto.less */
-.node-foto .field_media.fh {
-  box-sizing: border-box;
-}
-/* line 31, ..\themes\showgirls\less\node-foto.less */
-.node-foto .field_media.fh.portrait {
-  width: 50%;
-}
-/* line 35, ..\themes\showgirls\less\node-foto.less */
-.node-foto .field_media.fh .field_media-wrap {
-  height: 100%;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-/* line 44, ..\themes\showgirls\less\node-foto.less */
-.node-foto .landscape + .portrait {
+
+.landscape + .portrait {
   padding-right: 10px;
 }
-/* line 48, ..\themes\showgirls\less\node-foto.less */
-.node-foto .portrait + .portrait {
+
+.landscape + .square {
+  padding-right: 10px;
+}
+
+.portrait + .portrait {
   padding-left: 10px;
 }
-/* line 2, ..\themes\showgirls\less\comments.less */
-.comment .comment_forbidden,
-.comment .permalink {
+
+.square + .square {
+  padding-left: 10px;
+}
+*/
+/* line 63, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif {
+  margin: 0;
+  float: left;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+}
+/* line 69, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif:before,
+figure.static-gif:after {
+  position: absolute;
+}
+/* line 74, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif:before {
+  top: 103.5px;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  background-color: rgba(204, 209, 217, 0.3);
+  font-family: 'Ionicons';
+  content: '\f215';
+  text-align: center;
+  line-height: 45px;
+  font-size: 19px;
+  color: #F5F7FA;
+}
+/* line 92, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif:after {
+  content: 'gif';
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  top: 20px;
+  right: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 3px;
+  color: #656D78;
+  background-color: rgba(170, 178, 189, 0.1);
+  text-transform: uppercase;
+}
+/* line 109, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif.play:before {
   display: none;
+}
+/* line 112, ..\themes\showgirls\less\content-types\media-field.less */
+figure.static-gif.play:after {
+  color: #fff;
+  background-color: #8CC152;
+}
+/* line 2, ..\themes\showgirls\less\content-types\event.less */
+.node-event .field-name-field-image img {
+  width: 100%;
+  height: auto;
 }
