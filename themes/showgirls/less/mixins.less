@@ -1,0 +1,19 @@
+.xl-container() {
+
+    .container-fixed();
+
+    @media (min-width: @screen-sm-min) {
+      width: @container-sm;
+    }
+    @media (min-width: @screen-md-min) {
+      width: @container-md;
+    }
+    @media (min-width: @screen-lg-min) {
+      width: @container-lg;
+    }
+
+    @media (min-width: @min-xl) {
+      width: @min-xl - 30;
+    }
+
+}
