@@ -10,7 +10,9 @@
     "grunt-cli": "*",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-less": "^1.0.1",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-svgmin": "^3.1.0",
+    "grunt-svgstore": "^0.5.0"
   },
   "scripts": {
     "grunt": "grunt",
