@@ -5,14 +5,53 @@
 /* line 8, ../themes/ember/less/twiks.less */
 #edit-field-media-und-ajax-wrapper .preview .media-thumbnail {
   width: 120px;
-  height: 120px;
+  height: auto;
 }
 /* line 12, ../themes/ember/less/twiks.less */
 #edit-field-media-und-ajax-wrapper .preview .media-thumbnail .label-wrapper {
   display: none;
 }
-/* line 19, ../themes/ember/less/twiks.less */
+/* line 20, ../themes/ember/less/twiks.less */
 #media-tabs-wrapper .ui-tabs-nav li.ui-state-active a:link,
 #media-tabs-wrapper .ui-tabs-nav li.ui-state-active a:visited {
   color: black;
+}
+/* line 25, ../themes/ember/less/twiks.less */
+#media-tabs-wrapper .ui-widget-header {
+  background: none;
+}
+/* line 29, ../themes/ember/less/twiks.less */
+#media-tabs-wrapper > ul > li {
+  margin-top: -10px;
+}
+/* line 32, ../themes/ember/less/twiks.less */
+#media-tabs-wrapper > ul > li > a,
+#media-tabs-wrapper > ul > li #branding .primary a,
+#media-tabs-wrapper > ul > li #branding .secondary a {
+  color: black !important;
+}
+/* line 43, ../themes/ember/less/twiks.less */
+#media-browser-library-list .media-thumbnail {
+  width: 120px;
+  height: 170px;
+}
+/* line 47, ../themes/ember/less/twiks.less */
+#media-browser-library-list .media-thumbnail .label-wrapper {
+  display: none;
+}
+/* line 54, ../themes/ember/less/twiks.less */
+#edit-field-media tr:nth-child(3n) {
+  border-bottom: deepskyblue 10px dashed;
+}
+/* line 58, ../themes/ember/less/twiks.less */
+#edit-field-media .media-widget .preview,
+#edit-field-media .media-widget .preview .media-item {
+  background: none;
+  padding: 0;
+  border: none;
+}
+/* line 64, ../themes/ember/less/twiks.less */
+#edit-field-media .media-widget .preview .label-wrapper,
+#edit-field-media .media-widget .preview .media-item .label-wrapper {
+  display: none;
 }

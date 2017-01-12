@@ -34,13 +34,18 @@
             setCover ();
 
             $('.field-name-field-media .field-items').masonry({
-                // options
                 itemSelector: '.field-item.static-image',
                 columnWidth: '.field-item',
-                percentPosition: true
+                percentPosition: true,
+                gutter: 10
             });
         });
-        
+
+        /*$(window).load(function() {
+            $('.field-name-field-media .field-items').BalancedGallery({
+            });
+        });*/
+
         $(window).on('resize', function(e) {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {

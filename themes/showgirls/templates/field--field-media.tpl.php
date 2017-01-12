@@ -76,12 +76,14 @@ HTML comment.
         //print "<div class=" ."\"". "fh field_media " . $mediaRatio . "\"" . "><div class=" ."\"". "field_media-wrap " . "\"" . "style=" . "\"" . "background-image: url('" . image_style_url("large", $mediauri) ."')" . "\"" . "></div></div>\n";
       ?>
 
-      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; print $ext == 'image/gif' ? ' animation-image' : 'static-image';  ?>"<?php print $item_attributes[$delta]; ?>>
+      <div class="field-item fh <?php print $delta % 2 ? 'odd' : 'even'; print ' ' . $mediaRatio; print $ext == ' image/gif' ? ' animation-image' : ' static-image';  ?>"<?php print $item_attributes[$delta]; ?>>
         <?php
           //print render($item);
           if ($ext == 'image/gif') {
             $gif = '<figure class="static-gif"><img src="' . image_style_url("large_png", $mediauri) .'" data-alt="' . file_create_url($mediauri) .'"></figure>';
             print $gif;
+          } else {
+            print render($item);
           }
         ?>
       </div>

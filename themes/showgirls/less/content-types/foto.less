@@ -1,23 +1,31 @@
-.node-foto {
-    h1 {
-        display: none;
-    }
-    
-    .intro {
-        &.fullscreen-cover {
-            .imagecover {
-                height: 100%;
-                background-position: center center;
-                background-size: cover;
-                background-repeat: no-repeat;
+#block-system-main {
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .radix-layouts-content {
+            &.col-md-12 {
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
-    
-    .field-name-body {
-        margin-top: 60px;
-        margin-bottom: 60px;
-        text-align: justify;
+}
+
+.pane-node-title {
+    .pane-title {
+        display: none;
     }
 }
 
+.pane-node-field-front-image {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

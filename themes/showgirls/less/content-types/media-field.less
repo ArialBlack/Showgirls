@@ -1,10 +1,32 @@
 .field-name-field-media {
-  .field-item.static-image {
-    width: 30%;
+  .field-item {
+    margin: 5px;
 
-    img {
-      width: 100%;
-      height: auto;
+    &.static-image {
+      width: 30%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &.fh {
+      &.landscape {
+        width: 100%;
+      }
+
+      &.square {
+        width: 30%;
+      }
+
+      &.portrait {
+        width: 30%;
+      }
+
+      figure {
+        width: 100%;
+      }
     }
   }
 }
@@ -72,9 +94,9 @@ figure.static-gif {
   }
   // the play button.
   &:before {
-    top: (227px / 2) - 10px;
+    top: 50%;
     left: 50%;
-    margin-left: -25px;
+    transform: translate(-50%,-50%);
     width: 50px;
     height: 50px;
     border: 3px solid fadeout(#fff, 30%);
