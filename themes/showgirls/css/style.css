@@ -923,45 +923,45 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 768px) {
   /* line 13, ..\build\bower_components\bootstrap\less\grid.less */
   .container {
-    width: 750px;
+    width: 720px;
   }
 }
 @media (min-width: 992px) {
   /* line 16, ..\build\bower_components\bootstrap\less\grid.less */
   .container {
-    width: 970px;
+    width: 940px;
   }
 }
 @media (min-width: 1200px) {
   /* line 19, ..\build\bower_components\bootstrap\less\grid.less */
   .container {
-    width: 1170px;
+    width: 1140px;
   }
 }
 /* line 30, ..\build\bower_components\bootstrap\less\grid.less */
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 /* line 39, ..\build\bower_components\bootstrap\less\grid.less */
 .row {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: 0;
+  margin-right: 0;
 }
 /* line 17, ..\build\bower_components\bootstrap\less\mixins\grid-framework.less */
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 /* line 39, ..\build\bower_components\bootstrap\less\mixins\grid-framework.less */
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
@@ -2658,8 +2658,8 @@ select[multiple].input-lg {
 }
 /* line 571, ..\build\bower_components\bootstrap\less\forms.less */
 .form-horizontal .form-group {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: 0;
+  margin-right: 0;
 }
 @media (min-width: 768px) {
   /* line 578, ..\build\bower_components\bootstrap\less\forms.less */
@@ -2671,7 +2671,7 @@ select[multiple].input-lg {
 }
 /* line 589, ..\build\bower_components\bootstrap\less\forms.less */
 .form-horizontal .has-feedback .form-control-feedback {
-  right: 15px;
+  right: 0;
 }
 @media (min-width: 768px) {
   /* line 599, ..\build\bower_components\bootstrap\less\forms.less */
@@ -5142,8 +5142,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 /* line 50, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
@@ -5195,8 +5195,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0;
+  margin-left: 0;
 }
 @media (min-width: 768px) {
   /* line 113, ..\build\bower_components\bootstrap\less\navbar.less */
@@ -5248,7 +5248,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 /* line 163, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: 15px 0;
   font-size: 18px;
   line-height: 20px;
   height: 50px;
@@ -5266,14 +5266,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   /* line 180, ..\build\bower_components\bootstrap\less\navbar.less */
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-left: 0;
   }
 }
 /* line 193, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: 15px;
+  margin-right: 0;
   padding: 9px 10px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -5305,7 +5305,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 /* line 232, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-nav {
-  margin: 7.5px -15px;
+  margin: 7.5px 0;
 }
 /* line 235, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-nav > li > a {
@@ -5357,9 +5357,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 /* line 286, ..\build\bower_components\bootstrap\less\navbar.less */
 .navbar-form {
-  margin-left: -15px;
-  margin-right: -15px;
-  padding: 10px 15px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px 0;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -5491,8 +5491,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   /* line 362, ..\build\bower_components\bootstrap\less\navbar.less */
   .navbar-text {
     float: left;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media (min-width: 768px) {
@@ -5503,7 +5503,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   /* line 380, ..\build\bower_components\bootstrap\less\navbar.less */
   .navbar-right {
     float: right !important;
-    margin-right: -15px;
+    margin-right: 0;
   }
   /* line 384, ..\build\bower_components\bootstrap\less\navbar.less */
   .navbar-right ~ .navbar-right {
@@ -6096,8 +6096,8 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 /* line 35, ..\build\bower_components\bootstrap\less\jumbotron.less */
 .jumbotron .container {
@@ -7843,7 +7843,13 @@ button.close {
 body.jquery-ajax-load .node:before,
 body.jquery-ajax-load .node:after,
 .modal .modal-dialog.container:before,
-.modal .modal-dialog.container:after {
+.modal .modal-dialog.container:after,
+.node-type-foto .tabs--primary:before,
+.node-type-foto .tabs--primary:after,
+.node-type-foto .pane-node-title:before,
+.node-type-foto .pane-node-title:after,
+.node-type-foto #panels-ipe-regionid-contentmain:before,
+.node-type-foto #panels-ipe-regionid-contentmain:after {
   content: " ";
   display: table;
 }
@@ -7865,7 +7871,10 @@ body.jquery-ajax-load .node:after,
 .modal-header:after,
 .modal-footer:after,
 body.jquery-ajax-load .node:after,
-.modal .modal-dialog.container:after {
+.modal .modal-dialog.container:after,
+.node-type-foto .tabs--primary:after,
+.node-type-foto .pane-node-title:after,
+.node-type-foto #panels-ipe-regionid-contentmain:after {
   clear: both;
 }
 /* line 12, ..\build\bower_components\bootstrap\less\utilities.less */
@@ -8640,7 +8649,7 @@ ul li.leaf {
   .form-type-password-confirm .password-help {
     border-left: 1px solid #ddd;
     left: 50%;
-    margin-left: 15px;
+    margin-left: 0;
     position: absolute;
   }
 }
@@ -8948,8 +8957,8 @@ table .checkbox input[type="checkbox"] {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 7px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
   text-align: right;
 }
 @media (min-width: 768px) {
@@ -13252,18 +13261,17 @@ body {
 }
 /* line 5, ..\themes\showgirls\less\general.less */
 #main-section {
-  background: #fff;
   padding: 0;
 }
-/* line 11, ..\themes\showgirls\less\general.less */
+/* line 10, ..\themes\showgirls\less\general.less */
 .field-name-body p {
   margin-bottom: 60px;
 }
-/* line 14, ..\themes\showgirls\less\general.less */
+/* line 13, ..\themes\showgirls\less\general.less */
 .field-name-body p:last-child {
   margin-bottom: 0;
 }
-/* line 21, ..\themes\showgirls\less\general.less */
+/* line 20, ..\themes\showgirls\less\general.less */
 #imagewebimport-step2 table img {
   max-width: 200px;
   height: auto;
@@ -13284,8 +13292,8 @@ body.jquery-ajax-load {
 body.jquery-ajax-load .node {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
   background: white;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -13293,26 +13301,26 @@ body.jquery-ajax-load .node {
 @media (min-width: 768px) {
   /* line 13, ..\build\bower_components\bootstrap\less\grid.less */
   body.jquery-ajax-load .node {
-    width: 750px;
+    width: 720px;
   }
 }
 @media (min-width: 992px) {
   /* line 16, ..\build\bower_components\bootstrap\less\grid.less */
   body.jquery-ajax-load .node {
-    width: 970px;
+    width: 940px;
   }
 }
 @media (min-width: 1200px) {
   /* line 19, ..\build\bower_components\bootstrap\less\grid.less */
   body.jquery-ajax-load .node {
-    width: 1170px;
+    width: 1140px;
   }
 }
 /* line 108, ..\build\bower_components\bootstrap\less\navbar.less */
 body.jquery-ajax-load .node > .navbar-header,
 body.jquery-ajax-load .node > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0;
+  margin-left: 0;
 }
 @media (min-width: 768px) {
   /* line 113, ..\build\bower_components\bootstrap\less\navbar.less */
@@ -13553,32 +13561,32 @@ body.map .modal-dialog.container .in-teaser .carousel-container p {
 .modal .modal-dialog.container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 768px) {
   /* line 13, ..\build\bower_components\bootstrap\less\grid.less */
   .modal .modal-dialog.container {
-    width: 750px;
+    width: 720px;
   }
 }
 @media (min-width: 992px) {
   /* line 16, ..\build\bower_components\bootstrap\less\grid.less */
   .modal .modal-dialog.container {
-    width: 970px;
+    width: 940px;
   }
 }
 @media (min-width: 1200px) {
   /* line 19, ..\build\bower_components\bootstrap\less\grid.less */
   .modal .modal-dialog.container {
-    width: 1170px;
+    width: 1140px;
   }
 }
 /* line 108, ..\build\bower_components\bootstrap\less\navbar.less */
 .modal .modal-dialog.container > .navbar-header,
 .modal .modal-dialog.container > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0;
+  margin-left: 0;
 }
 @media (min-width: 768px) {
   /* line 113, ..\build\bower_components\bootstrap\less\navbar.less */
@@ -13689,101 +13697,146 @@ body.map .modal-dialog.container .in-teaser .carousel-container p {
   width: 100%;
   height: auto;
 }
-/* line 2, ..\themes\showgirls\less\content-types\foto.less */
+/* line 1, ..\themes\showgirls\less\content-types\foto.less */
+.node-type-foto .tabs--primary,
+.node-type-foto .pane-node-title,
+.node-type-foto #panels-ipe-regionid-contentmain {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 768px) {
+  /* line 5, ..\themes\showgirls\less\mixins.less */
+  .node-type-foto .tabs--primary,
+  .node-type-foto .pane-node-title,
+  .node-type-foto #panels-ipe-regionid-contentmain {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 8, ..\themes\showgirls\less\mixins.less */
+  .node-type-foto .tabs--primary,
+  .node-type-foto .pane-node-title,
+  .node-type-foto #panels-ipe-regionid-contentmain {
+    width: 940px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 11, ..\themes\showgirls\less\mixins.less */
+  .node-type-foto .tabs--primary,
+  .node-type-foto .pane-node-title,
+  .node-type-foto #panels-ipe-regionid-contentmain {
+    width: 1140px;
+  }
+}
+@media (min-width: 1500px) {
+  /* line 15, ..\themes\showgirls\less\mixins.less */
+  .node-type-foto .tabs--primary,
+  .node-type-foto .pane-node-title,
+  .node-type-foto #panels-ipe-regionid-contentmain {
+    width: 1470px;
+  }
+}
+/* line 7, ..\themes\showgirls\less\content-types\foto.less */
+.node-type-foto #panels-ipe-regionid-contentmain {
+  background: #fff;
+}
+/* line 12, ..\themes\showgirls\less\content-types\foto.less */
 .node-type-foto #block-system-main .container-fluid {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 6, ..\themes\showgirls\less\content-types\foto.less */
+/* line 16, ..\themes\showgirls\less\content-types\foto.less */
 .node-type-foto #block-system-main .container-fluid .row {
   margin-right: 0;
   margin-left: 0;
 }
-/* line 12, ..\themes\showgirls\less\content-types\foto.less */
+/* line 22, ..\themes\showgirls\less\content-types\foto.less */
 .node-type-foto #block-system-main .container-fluid .radix-layouts-content.col-md-12 {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 21, ..\themes\showgirls\less\content-types\foto.less */
+/* line 31, ..\themes\showgirls\less\content-types\foto.less */
 .node-type-foto .pane-node-title .pane-title {
   display: none;
 }
-/* line 27, ..\themes\showgirls\less\content-types\foto.less */
+/* line 37, ..\themes\showgirls\less\content-types\foto.less */
 .node-type-foto .pane-node-field-front-image img {
   width: 100%;
   height: auto;
 }
 /* line 2, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item {
-  margin: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
-/* line 5, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 6, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.static-image {
-  width: 30%;
+  width: 100%;
 }
-/* line 8, ..\themes\showgirls\less\content-types\media-field.less */
+@media (min-width: 992px) {
+  /* line 9, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.static-image {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 13, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.static-image {
+    width: 33.33333333%;
+  }
+}
+/* line 17, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.static-image img {
   width: 100%;
   height: auto;
 }
-/* line 15, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 23, ..\themes\showgirls\less\content-types\media-field.less */
+.field-name-field-media .field-item.fh {
+  float: left;
+}
+/* line 26, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.fh.landscape {
   width: 100%;
 }
-/* line 19, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 30, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.fh.square {
-  width: 30%;
+  width: 100%;
 }
-/* line 23, ..\themes\showgirls\less\content-types\media-field.less */
+@media (min-width: 992px) {
+  /* line 33, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.fh.square {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 37, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.fh.square {
+    width: 33.33333333%;
+  }
+}
+/* line 42, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.fh.portrait {
-  width: 30%;
+  width: 100%;
 }
-/* line 27, ..\themes\showgirls\less\content-types\media-field.less */
+@media (min-width: 992px) {
+  /* line 45, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.fh.portrait {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 49, ..\themes\showgirls\less\content-types\media-field.less */
+  .field-name-field-media .field-item.fh.portrait {
+    width: 33.33333333%;
+  }
+}
+/* line 54, ..\themes\showgirls\less\content-types\media-field.less */
 .field-name-field-media .field-item.fh figure {
   width: 100%;
 }
-/*.field_media {
-  margin-bottom: 20px;
-  float: left;
-  width: 100%;
-
-  &.fh {
-    box-sizing: border-box;
-
-    &.portrait {
-      width: 50%;
-    }
-
-    &.square {
-      width: 33%;
-    }
-
-    .field_media-wrap {
-      height: 100%;
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-  }
-}
-
-.landscape + .portrait {
-  padding-right: 10px;
-}
-
-.landscape + .square {
-  padding-right: 10px;
-}
-
-.portrait + .portrait {
-  padding-left: 10px;
-}
-
-.square + .square {
-  padding-left: 10px;
-}
-*/
-/* line 85, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 64, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif {
   margin: 0;
   float: left;
@@ -13791,12 +13844,12 @@ figure.static-gif {
   position: relative;
   cursor: pointer;
 }
-/* line 91, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 70, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif:before,
 figure.static-gif:after {
   position: absolute;
 }
-/* line 96, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 75, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif:before {
   top: 50%;
   left: 50%;
@@ -13813,7 +13866,7 @@ figure.static-gif:before {
   font-size: 19px;
   color: #F5F7FA;
 }
-/* line 114, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 93, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif:after {
   content: 'gif';
   position: absolute;
@@ -13830,11 +13883,11 @@ figure.static-gif:after {
   background-color: rgba(170, 178, 189, 0.1);
   text-transform: uppercase;
 }
-/* line 131, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 110, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif.play:before {
   display: none;
 }
-/* line 134, ..\themes\showgirls\less\content-types\media-field.less */
+/* line 113, ..\themes\showgirls\less\content-types\media-field.less */
 figure.static-gif.play:after {
   color: #fff;
   background-color: #8CC152;

@@ -33,12 +33,12 @@
         $( document ).ready(function() {
             setCover ();
 
-            $('.field-name-field-media .field-items').masonry({
+        /*    $('.field-name-field-media .field-items').masonry({
                 itemSelector: '.field-item.static-image',
                 columnWidth: '.field-item',
                 percentPosition: true,
                 gutter: 10
-            });
+            });*/
         });
 
         /*$(window).load(function() {
