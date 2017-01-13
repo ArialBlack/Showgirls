@@ -1,5 +1,21 @@
 <?php
 
+/*
+ *https://vk.com/wall-35862441_548889 пост
+ * https://pp.vk.me/c637531/v637531772/2901f/oRoGB8bPtmw.jpg);
+ *
+ * {"temp":
+ *  {
+ * "base":"https://pp.vk.me/c637531/v637531772/",
+ * "x_":["29018/2caOXmtdrLc",604,403],
+ * "y_":["29019/8TWpI_kjPbo",807,538],
+ * "z_":["2901a/Jw1J4i-WigQ",1280,854],
+ * "w_":["2901b/M1jTmaaslVU",2560,1709]}
+ * ,queue:1}
+ *
+ * https://pp.vk.me/c637531/v637531772/2901b/M1jTmaaslVU.jpg
+ */
+
 function imagewebimport_menu() {
 
     $items['import-remote'] = array(
@@ -23,6 +39,22 @@ function imagewebimport_menu() {
         'page callback' => 'imagewebimport_step3',
         'access arguments' => array('access content'),
         'type' => MENU_CALLBACK
+    );
+
+    $items['import-vk'] = array(
+        'title' => 'Simplest AJAX Example',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('imagewebimport_vkstep1'),
+        'access callback' => TRUE,
+        'weight' => 0,
+    );
+
+    $items['import-vk/2'] = array(
+        'title' => 'Simplest AJAX Example',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('imagewebimport_vkstep2', ),
+        'access callback' => TRUE,
+        'weight' => 0,
     );
 
   return $items;
@@ -235,4 +267,110 @@ function _get_remote_images($html) {
         }
 
     return $img_urls;
+}
+
+
+///////
+///////
+
+function imagewebimport_vkstep1 ($form, &$form_state) {
+    $form['remoteurl'] = array(
+        '#type' => 'textfield',
+        '#title' => 'Testfield',
+        '#required' => TRUE,
+        '#value' => 'https://vk.com/wall-35862441_548889',
+    );
+
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Submit',
+    );
+
+    $result = drupal_http_request('https://vk.com/wall-35862441_548889');
+    $html = str_get_html($result->data);
+    //dsm($html);
+
+    $c = [];
+    foreach($html->nodes as $enode) {
+        //&& isset ($enode->attr['class']) && $enode->attr['class'] == 'wall_post_text'
+       if ($enode->tag == 'div' && isset ($enode->attr['class'])) {
+           dsm($enode);
+           $c = $enode;
+          // break;
+      }
+    }
+
+    //dsm($c);
+
+    return $form;
+}
+
+function imagewebimport_vkstep1_submit($form, $form_state) {
+    if (form_get_errors()) {
+        return $form;
+    } else {
+        $url = $form_state['input']['remoteurl'];
+        $_SESSION['imagewebimport_vk1'][1] = $url;
+
+        $result = drupal_http_request($url);
+
+        if ($result->code == 200) {
+            $html = str_get_html($result->data);
+            dsm($html);
+            //$_SESSION['imagewebimport_vk1'][0] = $url;
+            //drupal_goto('import-vk/2');
+
+           // foreach($html->nodes as $enode) {
+             //   if ($enode->tag == 'div' && ) {
+
+            //   }
+           // }
+
+        }
+
+        return $form;
+    }
+}
+
+function imagewebimport_vkstep2($form, &$form_state) {
+    $form['images'] = array(
+        '#tree' => TRUE,
+        '#theme' => 'tabular_form', // Функция, с помощью которой мы будем придавать форме табличный вид
+        '#header' => array('foto', 'size', 'url', 'Опубликовано'), // Заголовок таблицы
+    );
+
+    $url = $_SESSION['imagewebimport_vk1'][0];
+
+
+   /* $c = 0;
+    foreach ($_SESSION['imagewebimport_1'][0] as $image_url) {
+        $c++;
+        list($mediawidth, $mediaheight) = getimagesize($image_url);
+
+        $form['images'][$c]['image'] = array(
+            '#markup' => '<img src="' . $image_url . '" />',
+        );
+
+        $form['images'][$c]['size'] = array(
+            '#markup' => $mediawidth . ' x ' . $mediaheight,
+        );
+
+        $form['images'][$c]['url'] = array(
+            '#type' => 'textarea',
+            '#default_value' => $image_url,
+            '#required' => TRUE,
+        );
+
+        $form['images'][$c]['status'] = array(
+            '#type' => 'checkbox',
+            '#default_value' => ($mediawidth >= 130) ? true : false,
+        );
+    }*/
+
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Сохранить',
+    );
+
+    return $form;
 }

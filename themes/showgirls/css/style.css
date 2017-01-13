@@ -13254,7 +13254,14 @@ h6 {
   font-family: 'nautilus_pompiliusregular', serif;
   font-weight: normal;
 }
-/*font-family: 'Noto Serif', serif;*/
+/* line 29, ..\themes\showgirls\less\fonts.less */
+h1 {
+  font-size: 13vmin;
+}
+/* line 32, ..\themes\showgirls\less\fonts.less */
+h2 {
+  font-size: calc(3rem);
+}
 /* line 1, ..\themes\showgirls\less\general.less */
 body {
   background: #222222;
