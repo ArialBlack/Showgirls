@@ -55,3 +55,12 @@
 #edit-field-media .media-widget .preview .media-item .label-wrapper {
   display: none;
 }
+/* line 71, ../themes/ember/less/twiks.less */
+.page-admin-import-remote #content form input {
+  width: 100%;
+}
+/* line 76, ../themes/ember/less/twiks.less */
+.images-select img {
+  max-width: 600px;
+  height: auto;
+}

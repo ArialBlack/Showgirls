@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Sample module for adding custom Radix layouts.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function radix_layouts_showgirls_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}

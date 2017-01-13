@@ -1,66 +1,27 @@
 <?php
 
-/*
- *https://vk.com/wall-35862441_548889 пост
- * https://pp.vk.me/c637531/v637531772/2901f/oRoGB8bPtmw.jpg);
- *
- * {"temp":
- *  {
- * "base":"https://pp.vk.me/c637531/v637531772/",
- * "x_":["29018/2caOXmtdrLc",604,403],
- * "y_":["29019/8TWpI_kjPbo",807,538],
- * "z_":["2901a/Jw1J4i-WigQ",1280,854],
- * "w_":["2901b/M1jTmaaslVU",2560,1709]}
- * ,queue:1}
- *
- * https://pp.vk.me/c637531/v637531772/2901b/M1jTmaaslVU.jpg
- */
+
 
 function imagewebimport_menu() {
 
-    $items['import-remote'] = array(
-        'title' => 'Simplest AJAX Example',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('imagewebimport_step1'),
-        'access callback' => TRUE,
-        'weight' => 0,
-    );
-
-    $items['import-remote/2'] = array(
-        'title' => 'Simplest AJAX Example',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('imagewebimport_step2', ),
-        'access callback' => TRUE,
-        'weight' => 0,
-    );
-
-    $items['import-remote/3'] = array(
-        'title' => 'Simplest AJAX Example',
-        'page callback' => 'imagewebimport_step3',
+    $items['admin/import-remote/json'] = array(
+        'title' => 'imagewebimport',
+        'page callback' => 'imagewebimport_create',
         'access arguments' => array('access content'),
         'type' => MENU_CALLBACK
     );
 
-    $items['import-vk'] = array(
+    $items['admin/import-remote'] = array(
         'title' => 'Simplest AJAX Example',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('imagewebimport_vkstep1'),
-        'access callback' => TRUE,
-        'weight' => 0,
+        'page callback' => 'imagewebimport_jsform',
+        'access arguments' => array('access content'),
+        'type' => MENU_CALLBACK
     );
 
-    $items['import-vk/2'] = array(
-        'title' => 'Simplest AJAX Example',
-        'page callback' => 'drupal_get_form',
-        'page arguments' => array('imagewebimport_vkstep2', ),
-        'access callback' => TRUE,
-        'weight' => 0,
-    );
-
-  return $items;
+    return $items;
 }
 
-function imagewebimport_step1 ($form, &$form_state) {
+function imagewebimport_step ($form, &$form_state) {
     $form['remoteurl'] = array(
         '#type' => 'textfield',
         '#title' => 'Testfield',
@@ -76,108 +37,34 @@ function imagewebimport_step1 ($form, &$form_state) {
     return $form;
 }
 
-function imagewebimport_step1_submit($form, $form_state) {
-    if (form_get_errors()) {
-        return $form;
-    } else {
-        $url = $form_state['input']['remoteurl'];
-        $_SESSION['imagewebimport_1'][1] = $url;
+function imagewebimport_jsform() {
+    $path = drupal_get_path('module', 'imagewebimport');
+    drupal_add_js($path . '/script.js', array('weight' => 1));
 
-        $result = drupal_http_request($url);
-
-        if ($result->code == 200) {
-            $html = str_get_html($result->data);
-            $img_urls = _get_remote_images($html);
-            $_SESSION['imagewebimport_1'][0] = $img_urls;
-            drupal_goto('import-remote/2');
-        }
-
-        return $form;
-    }
+    $content = '<form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">VK url</label>
+            <input type="text" class="form-control" id="vkUrl" placeholder="wall post url: https://vk.com/wall-35862441_548889" value="">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <div class="images-select"><div class="table-holder"></div></div>
+        </form>';
+    return $content;
 }
 
-function imagewebimport_step2($form, &$form_state) {
-    $form['images'] = array(
-        '#tree' => TRUE,
-        '#theme' => 'tabular_form', // Функция, с помощью которой мы будем придавать форме табличный вид
-        '#header' => array('foto', 'size', 'url', 'Опубликовано'), // Заголовок таблицы
-    );
+function imagewebimport_create() {
 
-    $c = 0;
-    foreach ($_SESSION['imagewebimport_1'][0] as $image_url) {
-        $c++;
-        list($mediawidth, $mediaheight) = getimagesize($image_url);
-
-        $form['images'][$c]['image'] = array(
-            '#markup' => '<img src="' . $image_url . '" />',
-        );
-
-        $form['images'][$c]['size'] = array(
-            '#markup' => $mediawidth . ' x ' . $mediaheight,
-        );
-
-        $form['images'][$c]['url'] = array(
-            '#type' => 'textarea',
-            '#default_value' => $image_url,
-            '#required' => TRUE,
-        );
-
-        $form['images'][$c]['status'] = array(
-            '#type' => 'checkbox',
-            '#default_value' => ($mediawidth >= 130) ? true : false,
-        );
-    }
-
-    $form['submit'] = array(
-        '#type' => 'submit',
-        '#value' => 'Сохранить',
-    );
-
-    return $form;
-}
-
-function imagewebimport_step2_submit($form, $form_state) {
-    $values = &$form_state['values'];
-    $selected_urls = [];
-
-    foreach ($values['images'] as $image) {
-        if ($image['status'] == 1) {
-            array_push($selected_urls, $image['url']);
-        }
-    }
-
-    $_SESSION['imagewebimport_2'][0] = $selected_urls;
-    drupal_goto('import-remote/3');
-
-}
-
-function imagewebimport_step3() {
-    dsm($_SESSION['imagewebimport_2'][0]);
-
-
-    $start_url = $_SESSION['imagewebimport_1'][1];
-    $result = drupal_http_request($start_url);
-
-    if ($result->code == 200) {
-        $html = str_get_html($result->data);
-
-        foreach($html->find('h1') as $element) {
-            if (strlen($element->innertext) > 3) {
-                $h1 = $element->innertext;
-                break;
-            }
-        }
-
-        $img_urls = $_SESSION['imagewebimport_2'][0];
+    if(isset($_REQUEST['get_article']) && $_REQUEST['get_article']!='') {
+        $json = json_decode($_REQUEST['get_article']);
 
         $node = new stdClass();
         $node->type = 'found';
         node_object_prepare($node);
 
-        $node->title = $h1;
+        $node->title = $json->title;
         $node->language = LANGUAGE_NONE;
         $node->uid = 1;
-        $node->status = 1;
+        $node->status = 0;
         $node->revision = FALSE;
         $node->comment = 0;
         $node->promote = 0;
@@ -185,12 +72,12 @@ function imagewebimport_step3() {
         $node->log = NULL;
         $node->created = time();
 
-        $node->field_src_url[$node->language][0]['value'] = $start_url;
+        $node->field_src_url[$node->language][0]['value'] = $json->url;
 
-        $img_count = count ($img_urls);
+        $img_count = count ( $json->imgsrc);
 
         for ($i = 0; $i < $img_count; $i++) {
-            $url = $img_urls[$i];
+            $url = $json->imgsrc[$i];
             $file_info = system_retrieve_file($url, 'public://pictures/', TRUE);
             if($file_info->fid){
                 $node->field_media[LANGUAGE_NONE][$i]['fid'] = $file_info->fid;
@@ -202,175 +89,4 @@ function imagewebimport_step3() {
 
         drupal_goto('/node/'.$node->nid);
     }
-}
-
-function imagewebimport_theme() {
-    return array(
-        'tabular_form' => array(
-            'render element' => 'form',
-        ),
-    );
-}
-
-function theme_tabular_form($vars) {
-    $form = $vars['form'];
-    $rows = array();
-
-    foreach (element_children($form) as $key) {
-        foreach (element_children($form[$key]) as $name) {
-            $rows[$key][] = drupal_render($form[$key][$name]);
-        }
-    }
-
-    return theme('table', array(
-        'rows' => $rows,
-        'header' => $form['#header'],
-    ));
-}
-
-
-function _get_remote_images($html) {
-
-    $img_urls = [];
-
-    foreach($html->nodes as $enode) {
-            if ($enode->tag == 'img') {
-                preg_match_all('/https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/', $enode->attr['src'], $matches);
-
-                if (count ($matches[0]) > 0 && strlen ($matches[0][0] ) > 0) {
-                    array_push($img_urls, $matches[0][0]);
-                }
-            }
-
-            if ($enode->tag == 'a') {
-                if (isset ($enode->attr['style'])) {
-                    preg_match_all('/https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/', $enode->attr['style'], $matches);
-
-                    if (count ($matches[0]) > 0 && strlen ($matches[0][0] ) > 0) {
-                        array_push($img_urls, $matches[0][0]);
-                    }
-                } else {
-                    preg_match_all('/https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/', $enode->attr['href'], $matches2);
-
-                    if (strlen (count ($matches2[0]) > 0 && $matches2[0][0] ) > 0) {
-                        array_push($img_urls, $matches2[0][0]);
-                    }
-                }
-            }
-
-            if ($enode->tag == 'div' && isset ($enode->attr['style'])) {
-                preg_match_all('/https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/', $enode->attr['style'], $matches);
-                if (count ($matches[0]) > 0 && strlen ($matches[0][0] ) > 0) {
-                    array_push($img_urls, $matches[0][0]);
-                }
-            }
-        }
-
-    return $img_urls;
-}
-
-
-///////
-///////
-
-function imagewebimport_vkstep1 ($form, &$form_state) {
-    $form['remoteurl'] = array(
-        '#type' => 'textfield',
-        '#title' => 'Testfield',
-        '#required' => TRUE,
-        '#value' => 'https://vk.com/wall-35862441_548889',
-    );
-
-    $form['submit'] = array(
-        '#type' => 'submit',
-        '#value' => 'Submit',
-    );
-
-    $result = drupal_http_request('https://vk.com/wall-35862441_548889');
-    $html = str_get_html($result->data);
-    //dsm($html);
-
-    $c = [];
-    foreach($html->nodes as $enode) {
-        //&& isset ($enode->attr['class']) && $enode->attr['class'] == 'wall_post_text'
-       if ($enode->tag == 'div' && isset ($enode->attr['class'])) {
-           dsm($enode);
-           $c = $enode;
-          // break;
-      }
-    }
-
-    //dsm($c);
-
-    return $form;
-}
-
-function imagewebimport_vkstep1_submit($form, $form_state) {
-    if (form_get_errors()) {
-        return $form;
-    } else {
-        $url = $form_state['input']['remoteurl'];
-        $_SESSION['imagewebimport_vk1'][1] = $url;
-
-        $result = drupal_http_request($url);
-
-        if ($result->code == 200) {
-            $html = str_get_html($result->data);
-            dsm($html);
-            //$_SESSION['imagewebimport_vk1'][0] = $url;
-            //drupal_goto('import-vk/2');
-
-           // foreach($html->nodes as $enode) {
-             //   if ($enode->tag == 'div' && ) {
-
-            //   }
-           // }
-
-        }
-
-        return $form;
-    }
-}
-
-function imagewebimport_vkstep2($form, &$form_state) {
-    $form['images'] = array(
-        '#tree' => TRUE,
-        '#theme' => 'tabular_form', // Функция, с помощью которой мы будем придавать форме табличный вид
-        '#header' => array('foto', 'size', 'url', 'Опубликовано'), // Заголовок таблицы
-    );
-
-    $url = $_SESSION['imagewebimport_vk1'][0];
-
-
-   /* $c = 0;
-    foreach ($_SESSION['imagewebimport_1'][0] as $image_url) {
-        $c++;
-        list($mediawidth, $mediaheight) = getimagesize($image_url);
-
-        $form['images'][$c]['image'] = array(
-            '#markup' => '<img src="' . $image_url . '" />',
-        );
-
-        $form['images'][$c]['size'] = array(
-            '#markup' => $mediawidth . ' x ' . $mediaheight,
-        );
-
-        $form['images'][$c]['url'] = array(
-            '#type' => 'textarea',
-            '#default_value' => $image_url,
-            '#required' => TRUE,
-        );
-
-        $form['images'][$c]['status'] = array(
-            '#type' => 'checkbox',
-            '#default_value' => ($mediawidth >= 130) ? true : false,
-        );
-    }*/
-
-    $form['submit'] = array(
-        '#type' => 'submit',
-        '#value' => 'Сохранить',
-    );
-
-    return $form;
 }
