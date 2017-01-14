@@ -28,14 +28,14 @@
 
             function extractDomain(url) {
                 var domain;
+
                 if (url.indexOf("://") > -1) {
                     domain = url.split('/')[2];
-                }
-                else {
+                } else {
                     domain = url.split('/')[0];
                 }
-                domain = domain.split(':')[0];
 
+                domain = domain.split(':')[0];
                 return domain;
             }
 
@@ -52,13 +52,12 @@
                 $.get(
                     $url,
                     function (response) {
-                        var html = $.parseHTML(response);
-                        links = $(html).find('.page_post_sized_thumbs.clear_fix a');
-                        title = $(html).filter('title').text();
-
-                        var imagesURL = [];
-                        $table = '<table width="100%" border="1">';
-                        var c = 0;
+                        var html = $.parseHTML(response),
+                            links = $(html).find('.page_post_sized_thumbs.clear_fix a'),
+                            title = $(html).filter('title').text(),
+                            imagesURL = [],
+                            $table = '<table width="100%" border="1">',
+                            c = 0;
 
                         links.each(function( index ) {
                             var $this = $(this),
@@ -92,7 +91,6 @@
 
                         $table = $table + '</table><a href="#" class="makejson">Make!</a>';
                         $('.table-holder').html($table);
-
                         myjsonObject.url = $url;
                         myjsonObject.title = title;
                     });
@@ -111,13 +109,12 @@
                 $.get(
                     $url,
                     function (response) {
-                        var html = $.parseHTML(response);
-                        title = $(html).filter('title').text();
-
-                        var $el =  $(html).find('div, a, img');
-                        var imagesURL = [];
-                        var $table = '<table width="100%" border="1">';
-                        var c = 0;
+                        var html = $.parseHTML(response),
+                            title = $(html).filter('title').text(),
+                            $el =  $(html).find('div, a, img'),
+                            imagesURL = [],
+                            $table = '<table width="100%" border="1">',
+                            c = 0;
 
                         $el.each(function( index ) {
                             var $this = $(this),
@@ -127,35 +124,31 @@
 
                             if (style) {
                                 if (testImg(style)) {
-                                    console.log(style);
-                                    $table = $table + '<tr> <td><img src="' +  style + '"></td><td></td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="""></td></tr>';
+                                    $table = $table + '<tr> <td><img src="' +  style + '"></td><td></td> <td><input name="" type="text" value="' +  style + '"></td> <td><input name="" type="checkbox" value="""></td></tr>';
                                 }
                             } else if (href) {
                                 if (testImg(href)) {
-                                    console.log(href);
-                                    $table = $table + '<tr> <td><img src="' +  href + '"></td><td></td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value=""></td></tr>';
+                                    $table = $table + '<tr> <td><img src="' +  href + '"></td><td></td> <td><input name="" type="text" value="' +  href + '"></td> <td><input name="" type="checkbox" value=""></td></tr>';
                                 }
                             } else if (src) {
                                 if (testImg(src)) {
-                                    console.log(src);
-                                    $table = $table + '<tr> <td><img src="' +  src + '"></td><td></td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value=""></td></tr>';
+                                    $table = $table + '<tr> <td><img src="' +  src + '"></td><td></td> <td><input name="" type="text" value="' +  src + '"></td> <td><input name="" type="checkbox" value=""></td></tr>';
                                 }
                             }
                         });
 
                         $table = $table + '</table><a href="#" class="makejson">Make!</a>';
                         $('.table-holder').html($table);
-
                         myjsonObject.url = $url;
                         myjsonObject.title = title;
-
                     });
             }
 
             $(document).on( "click", ".makejson", function() {
                 var $tr = $('.table-holder table tr'),
                     imagesURL = [],
-                c = 0;
+                    nodetype = $('.nodetype option:selected').val(),
+                    c = 0;
 
                 $tr.each(function( index ) {
                     var $this = $(this),
@@ -168,12 +161,10 @@
                     }
                 });
 
-                //console.log(imagesURL);
                 myjsonObject.imgsrc = imagesURL;
-                //console.log(myjsonObject);
-                var myJsonString = JSON.stringify(myjsonObject);
-                targetUrl = encodeURI(siteURL +  myJsonString);
-                //console.log(targetUrl = encodeURI(siteURL +  myJsonString));
+                myjsonObject.nodetype = nodetype;
+                var myJsonString = JSON.stringify(myjsonObject),
+                    targetUrl = encodeURI(siteURL +  myJsonString);
 
                 window.location.href = targetUrl;
             });
@@ -185,17 +176,13 @@
                     $url = $this.find('input[type=text]').val();
 
                 if (extractDomain($url) == 'vk.com') {
+                    console.log('vk');
                     getDataFromVk($url);
                 } else {
+                    console.log('other');
                     getDataFromAny($url);
                 }
-
-
-
-
             });
-
-            $(document).ready(function() {});
 
         }
     };

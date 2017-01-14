@@ -1,7 +1,5 @@
 <?php
 
-
-
 function imagewebimport_menu() {
 
     $items['admin/import-remote/json'] = array(
@@ -21,22 +19,6 @@ function imagewebimport_menu() {
     return $items;
 }
 
-function imagewebimport_step ($form, &$form_state) {
-    $form['remoteurl'] = array(
-        '#type' => 'textfield',
-        '#title' => 'Testfield',
-        '#required' => TRUE,
-        '#value' => '',
-    );
-
-    $form['submit'] = array(
-        '#type' => 'submit',
-        '#value' => 'Submit',
-    );
-
-    return $form;
-}
-
 function imagewebimport_jsform() {
     $path = drupal_get_path('module', 'imagewebimport');
     drupal_add_js($path . '/script.js', array('weight' => 1));
@@ -45,6 +27,13 @@ function imagewebimport_jsform() {
         <div class="form-group">
             <label for="exampleInputEmail1">VK url</label>
             <input type="text" class="form-control" id="vkUrl" placeholder="wall post url: https://vk.com/wall-35862441_548889" value="">
+        </div>
+        <div class="form-group">
+            <select class="nodetype">
+                <option disabled>Выберите</option>
+                <option selected value="found">Находка</option>
+                <option  value="foto">Фото</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
         <div class="images-select"><div class="table-holder"></div></div>
@@ -58,7 +47,7 @@ function imagewebimport_create() {
         $json = json_decode($_REQUEST['get_article']);
 
         $node = new stdClass();
-        $node->type = 'found';
+        $node->type =  $json->nodetype;
         node_object_prepare($node);
 
         $node->title = $json->title;
@@ -87,6 +76,6 @@ function imagewebimport_create() {
         $node = node_submit($node);
         node_save($node);
 
-        drupal_goto('/node/'.$node->nid);
+        drupal_goto('/node/'.$node->nid.'/edit');
     }
 }
