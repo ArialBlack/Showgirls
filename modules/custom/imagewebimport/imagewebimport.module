@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 function imagewebimport_menu() {
 
@@ -46,6 +46,8 @@ function imagewebimport_create() {
     if(isset($_REQUEST['get_article']) && $_REQUEST['get_article']!='') {
         $json = json_decode($_REQUEST['get_article']);
 
+        $edit = '/edit';
+
         $node = new stdClass();
         $node->type =  $json->nodetype;
         node_object_prepare($node);
@@ -76,6 +78,6 @@ function imagewebimport_create() {
         $node = node_submit($node);
         node_save($node);
 
-        drupal_goto('/node/'.$node->nid.'/edit');
+        drupal_goto('/node/' . $node->nid . $edit);
     }
 }

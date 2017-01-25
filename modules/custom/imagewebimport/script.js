@@ -26,6 +26,15 @@
                 }
             }
 
+            function checkJson(string) {
+                try {
+                    JSON.parse(string);
+                } catch (e) {
+                    return false;
+                }
+                return true;
+            }
+
             function extractDomain(url) {
                 var domain;
 
@@ -64,29 +73,34 @@
                                 $data = $this.attr("onclick");
                             $data = $data.substring($data.indexOf("{")+1,$data.lastIndexOf("}"));
                             $data = $data.substring($data.indexOf("{"),$data.lastIndexOf("}")+1);
-                            $json = JSON.parse($data);
 
-                            $base = $json.base;
+                            if (checkJson($data)) {
+                                $json = JSON.parse($data);
+                                $base = $json.base;
 
-                            if ($json.z_ && $json.z_[0]) {
-                                imagesURL[c] = ($json.base + $json.z_[0] + '.jpg');
-                                size = getImageSize(imagesURL[c]);
-                                console.log(size.orgWidth);
-                                $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
-                            } else if ($json.y_ && $json.y_[0]) {
-                                imagesURL[c] = ($json.base + $json.y_[0] + '.jpg');
-                                size = getImageSize(imagesURL[c]);
-                                $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
-                            } else if ($json.x_ && $json.x_[0]) {
-                                imagesURL[c] = ($json.base + $json.x_[0] + '.jpg');
-                                size = getImageSize(imagesURL[c]);
-                                $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
-                            } else if ($json.w_ && $json.w_[0]) {
-                                imagesURL[c] = ($json.base + $json.w_[0] + '.jpg');
-                                size = getImageSize(imagesURL[c]);
-                                $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
+                                if ($json.z_ && $json.z_[0]) {
+                                    imagesURL[c] = ($json.base + $json.z_[0] + '.jpg');
+                                    size = getImageSize(imagesURL[c]);
+                                    console.log(size.orgWidth);
+                                    $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
+                                } else if ($json.y_ && $json.y_[0]) {
+                                    imagesURL[c] = ($json.base + $json.y_[0] + '.jpg');
+                                    size = getImageSize(imagesURL[c]);
+                                    $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
+                                } else if ($json.x_ && $json.x_[0]) {
+                                    imagesURL[c] = ($json.base + $json.x_[0] + '.jpg');
+                                    size = getImageSize(imagesURL[c]);
+                                    $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
+                                } else if ($json.w_ && $json.w_[0]) {
+                                    imagesURL[c] = ($json.base + $json.w_[0] + '.jpg');
+                                    size = getImageSize(imagesURL[c]);
+                                    $table = $table + '<tr> <td><img src="' +  imagesURL[c] + '"></td><td>' + size.orgWidth + ' x ' + size.orgHeight + '</td> <td><input name="" type="text" value="' +  imagesURL[c] + '"></td> <td><input name="" type="checkbox" value="" checked="checked"></td></tr>'
+                                }
+                                c = c + 1;
+                            } else {
+                                console.log('not json');
                             }
-                            c = c + 1;
+
                         });
 
                         $table = $table + '</table><a href="#" class="makejson">Make!</a>';
@@ -121,6 +135,7 @@
                                 style = $this.attr('style'),
                                 href= $this.attr('href'),
                                 src = $this.attr('src');
+                            console.log($this);
 
                             if (style) {
                                 if (testImg(style)) {
