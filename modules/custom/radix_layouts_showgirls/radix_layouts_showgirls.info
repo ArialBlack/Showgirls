@@ -1,0 +1,5 @@
+name = Radix Layouts Showgirls
+description = Showgirls module for adding custom Radix layouts.
+core = 7.x
+
+dependencies[] = panels

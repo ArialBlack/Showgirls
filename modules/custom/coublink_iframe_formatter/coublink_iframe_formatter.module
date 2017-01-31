@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Defines a formatter that renders a link like an coub iframe
+ */
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function coublink_iframe_formatter_field_formatter_info() {
+  return array(
+    'coublink_iframe_formatter_iframe' => array(
+      'label' => t('Coub Iframe'),
+      'field types' => array('text'),
+      'settings' => array(
+        'width' => '100%',
+        'height' => '500',
+        'hd' => TRUE,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function coublink_iframe_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $settings = $instance['display'][$view_mode]['settings'];
+
+  $element = array();
+
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['width'],
+    '#required' => TRUE,
+  );
+
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#default_value' => $settings['height'],
+    '#required' => TRUE,
+  );
+
+    $element['hd'] = array(
+        '#type' =>'checkbox',
+        '#title'=>t('HD on'),
+        '#required'=>FALSE,
+        '#default_value' => $settings['hd'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function coublink_iframe_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $settings = $instance['display'][$view_mode]['settings'];
+
+  $summary = t('Width : @width, Height : @height, HD : @hd', array('@width' => $settings['width'], '@height' => $settings['height'], '@hd' => $settings['hd']));
+
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function coublink_iframe_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  foreach ($items as $delta => $item) {
+    if ($display['type'] == 'coublink_iframe_formatter_iframe') {
+      //<iframe src="//coub.com/embed/qh766?muted=false&autostart=false&originalSize=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="640" height="400"></iframe>
+      $url = str_replace("view", "embed", $item['safe_value']) . '?muted=false&autostart=false&originalSize=false&startWithHD=' .  $display['settings']['hd'];
+
+      $elements[$delta] = array(
+        '#type' => 'html_tag',
+        '#tag' => 'iframe',
+        '#attributes' => array(
+          'src' => $url,
+          'width' => $display['settings']['width'],
+          'height' => $display['settings']['height'],
+          'frameborder' => '0',
+          'allowfullscreen' => 'true'
+        ),
+        '#value' => ''
+      );
+    }
+  }
+  return $elements;
+}

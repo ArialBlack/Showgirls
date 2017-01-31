@@ -1,7 +1,11 @@
 (function ($) {
     $(function() {
-        
+
+
+
         var resizeTimer;
+
+
         
         function setCover (ismodal) {
             var wHeight = $(window).height(),
@@ -10,8 +14,8 @@
                 if (ismodal == true) {
                     navbarHeight = 0;
                     
-                    $('#jquery_ajax_load .fullscreen-cover').css('height', wHeight - navbarHeight  + 'px');
-                    $('#jquery_ajax_load .fh').css('height', wHeight - 40  + 'px');  
+                   // $('#jquery_ajax_load .fullscreen-cover').css('height', wHeight - navbarHeight  + 'px');
+                  //  $('#jquery_ajax_load .fh').css('height', wHeight - 40  + 'px');
                 }
             
             $('.fullscreen-cover').css('height', wHeight - navbarHeight  + 'px');
@@ -32,6 +36,7 @@
         
         $( document ).ready(function() {
             setCover ();
+
 
         /*    $('.field-name-field-media .field-items').masonry({
                 itemSelector: '.field-item.static-image',
